@@ -8,7 +8,8 @@ import java.util.Random;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.codec.binary.Base64;
+//import org.apache.commons.codec.binary.Base64;
+import sun.misc.BASE64Encoder;
 
 public class WSSEUsernameToken {
 
@@ -241,8 +242,8 @@ public class WSSEUsernameToken {
         // protected password hash again
         ByteBuffer.wrap(toBeDigested).clear();
 
-        return new Base64().encodeToString(digest);
-        //return new sun.misc.BASE64Encoder().encode(digest);
+        //return new Base64().encodeToString(digest);
+        return new sun.misc.BASE64Encoder().encode(digest);
     }
 
     /// <summary>
@@ -254,8 +255,8 @@ public class WSSEUsernameToken {
         byte[] nonce = new byte[16];
         (new Random()).nextBytes(nonce);
 
-        return new Base64().encodeToString(nonce);
-        //return new sun.misc.BASE64Encoder().encode(nonce);
+        //return new Base64().encodeToString(nonce);
+        return new sun.misc.BASE64Encoder().encode(nonce);
     }
 
     /// <summary>
@@ -274,8 +275,8 @@ public class WSSEUsernameToken {
         // protected password hash again
         ByteBuffer.wrap(ph).clear();
 
-        return new Base64().encodeToString(digest);
-        //return new sun.misc.BASE64Encoder().encode(digest);
+        //return new Base64().encodeToString(digest);
+        return new sun.misc.BASE64Encoder().encode(digest);
     }
 
     /// <summary>
