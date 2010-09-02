@@ -9,7 +9,7 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 //import org.apache.commons.codec.binary.Base64;
-import sun.misc.BASE64Encoder;
+//import sun.misc.BASE64Encoder;
 
 public class WSSEUsernameToken {
 
