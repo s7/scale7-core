@@ -3,24 +3,24 @@ package org.scale7.collections;
 import java.util.Arrays;
 
 /**
- * Set of shorts backed by short array. The class is thread safe because a complete copy of the 
+ * Set of shorts backed by short array. The class is thread safe because a complete copy of the
  * array is made each time the set is modified. No synchronization is needed to query the array, and
- * this collection will be quick in cases where modifications are few, but reads occur very frequently. 
+ * this collection will be quick in cases where modifications are few, but reads occur very frequently.
  * This array is also much faster than a CopyOnWriteArraySet<Short> because it does not perform
  * boxing and unboxing of shorts, and also utilizes less memory since separate objects must not be
- * created for each entry.  
- * 
+ * created for each entry.
+ *
  * @author dominicwilliams
  *
  */
 public class ShortCopyOnWriteArraySet {
-	
+
 	/**
 	 * Constructs an empty set of shorts
 	 */
 	public ShortCopyOnWriteArraySet() {
 	}
-	
+
 	/**
 	 * Constructs a set of shorts
 	 * @param values The initial values of the set
@@ -28,7 +28,7 @@ public class ShortCopyOnWriteArraySet {
 	public ShortCopyOnWriteArraySet(short[] values) {
 		set(values);
 	}
-	
+
 	/**
 	 * Set the items inside the set
 	 * @param values The new values to be contained in the set
@@ -38,7 +38,7 @@ public class ShortCopyOnWriteArraySet {
 		Arrays.sort(newArray, 0, newArray.length);
 		array = newArray;
 	}
-	
+
 	/**
 	 * Add new values to the set
 	 * @param values The values to be added
@@ -68,7 +68,7 @@ public class ShortCopyOnWriteArraySet {
 			}
 		}
 	}
-	
+
 	/**
 	 * Remove values from the set
 	 * @param values The values to be removed
@@ -97,21 +97,21 @@ public class ShortCopyOnWriteArraySet {
 							break;
 						}
 					if (keep)
-						newArray[copiedIdx++] = existingValue; 
+						newArray[copiedIdx++] = existingValue;
 				}
 				array = newArray;
 				return true;
 			}
 		}
 	}
-	
+
 	/**
 	 * Clear all entries from the set
 	 */
 	public void clear() {
 		array = null;
 	}
-	
+
 	/**
 	 * Search the set to see if it contains a given value
 	 * @param value The value to search for
@@ -121,9 +121,9 @@ public class ShortCopyOnWriteArraySet {
 		if (array == null)
 			return false;
 		else
-			return Arrays.binarySearch(array, 0, array.length, value) != -1;
+			return Arrays.binarySearch(array, 0, array.length, value) >= 0;
 	}
-	
+
 	/**
 	 * The number of entries in the set
 	 * @return The size of the set
@@ -134,15 +134,15 @@ public class ShortCopyOnWriteArraySet {
 		else
 			return array.length;
 	}
-	
+
 	/**
-	 * The contents of the set as an array. A copy of the set's underlying array is made. 
+	 * The contents of the set as an array. A copy of the set's underlying array is made.
 	 * @return The contents of the set as an array
 	 */
 	public short[] toArray() {
 		return toArray(true);
 	}
-	
+
 	/**
 	 * The contents of the set as an array. Using this method the set's underlying array may be accessed. This
 	 * may avoid an unnecessary array allocation in performance critical situations, however if the underlying
@@ -161,6 +161,6 @@ public class ShortCopyOnWriteArraySet {
 				return array;
 		}
 	}
-	
+
 	volatile short[] array;
 }
