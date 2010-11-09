@@ -47,14 +47,6 @@
 			<name>Maven Central Repo</name>
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
-		<repository>
-			<id>maven.scale7.org</id>
-			<name>Scale7 Maven Repo</name>
-			<url>http://github.com/s7/mvnrepo/raw/master</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
     <build>
         <pluginManagement>
