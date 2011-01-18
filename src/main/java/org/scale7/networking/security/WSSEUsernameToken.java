@@ -9,6 +9,9 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.mail.internet.MimeUtility;
+import java.io.*;
+
 public class WSSEUsernameToken {
 
     String _username;
@@ -247,7 +250,7 @@ public class WSSEUsernameToken {
     /// Generate a cryptographically random nonce.
     /// </summary>
     /// <returns>The cryptographically random nonce.</returns>
-    public static String generateNonce()
+    public static String generateNonce() throws Exception
     {
         byte[] nonce = new byte[16];
         (new Random()).nextBytes(nonce);
@@ -274,8 +277,17 @@ public class WSSEUsernameToken {
         return base64Encode(digest);
     }
 
-    public static String base64Encode(byte[] bytes) {
-    	return new org.apache.commons.codec.binary.Base64().encodeToString(bytes).trim();
+    public static String base64Encode(byte[] bytes) throws Exception {
+    	// Try relying on standard Sun package rather than Apache
+    	ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        OutputStream b64os = MimeUtility.encode(baos, "base64");
+        b64os.write(bytes);
+        b64os.close();
+        return (new String(baos.toByteArray())).trim();
+
+    	//return new org.apache.commons.codec.binary.Base64().encodeToString(bytes).trim();
+
+    	// Using sun.misc proprietary libraries. DEPRECATED because Eclipse would not recognize it after changing project structure for Maven
     	//return new sun.misc.BASE64Encoder().encode(bytes);
     }
 
