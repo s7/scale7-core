@@ -18,7 +18,7 @@
     </properties>
     <scm>
         <connection>scm:git:http://github.com/s7/scale7-core.git</connection>
-        <developerConnection>scm:git:ssh://github.com/s7/scale7-core.git</developerConnection>
+        <developerConnection>scm:git:git://github.com/s7/scale7-core.git</developerConnection>
         <url>http://github.com/s7/scale7-core</url>
     </scm>
     <issueManagement>
