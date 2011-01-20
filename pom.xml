@@ -1,41 +1,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.scale7</groupId>
-	<artifactId>scale7-core</artifactId>
-	<packaging>jar</packaging>
-	<version>1.3-SNAPSHOT</version>
-	<name>Core - The core classes used by the Scale 7 libraries</name>
-	<url>http://github.com/s7/core</url>
-	<properties>
-       <!--
-          The ${scale7.deploy.dir} should point to the directory that contains the clone of http://github.com/s7/mvnrepo.
-          By default it assumes that it's a sibling of the current project directory.  To change the default value alter
-          your ~/.m2/settings.xml file.
-       -->
-       <scale7.deploy.dir>file://${basedir}/../mvnrepo</scale7.deploy.dir>
-       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.scale7</groupId>
+    <artifactId>scale7-core</artifactId>
+    <packaging>jar</packaging>
+    <version>1.3-SNAPSHOT</version>
+    <name>Core - The core classes used by the Scale 7 libraries</name>
+    <url>http://github.com/s7/core</url>
+    <properties>
+        <!--
+           The ${scale7.deploy.dir} should point to the directory that contains the clone of http://github.com/s7/mvnrepo.
+           By default it assumes that it's a sibling of the current project directory.  To change the default value alter
+           your ~/.m2/settings.xml file.
+        -->
+        <scale7.deploy.dir>file://${basedir}/../mvnrepo</scale7.deploy.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-	<dependencies>
+    <scm>
+        <connection>scm:git:http://github.com/s7/scale7-core.git</connection>
+        <developerConnection>scm:git:ssh://github.com/s7/scale7-core.git</developerConnection>
+        <url>http://github.com/s7/scale7-core</url>
+    </scm>
+    <issueManagement>
+        <url>http://github.com/s7/scale7-core/issues</url>
+    </issueManagement>
+    <mailingLists>
+        <mailingList>
+            <name>users</name>
+            <archive>http://groups.google.com/group/scale7</archive>
+        </mailingList>
+    </mailingLists>
+    <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.5.11</version>
         </dependency>
-        <!--
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.4</version>
-			<optional>true</optional>
-		</dependency>
-		-->
-		<dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>mail</artifactId>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
             <version>1.4.1</version>
             <optional>true</optional>
-		</dependency>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -48,22 +54,22 @@
             <version>1.5.11</version>
             <scope>test</scope>
         </dependency>
-	</dependencies>
-	<repositories>
-		<repository>
-			<id>central</id>
-			<name>Maven Central Repo</name>
-			<url>http://repo1.maven.org/maven2</url>
-		</repository>
-		<repository>
-			<id>maven.scale7.org</id>
-			<name>Scale7 Maven Repo</name>
-			<url>https://github.com/s7/mvnrepo/raw/master</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Central Repo</name>
+            <url>http://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>maven.scale7.org</id>
+            <name>Scale7 Maven Repo</name>
+            <url>https://github.com/s7/mvnrepo/raw/master</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <build>
         <pluginManagement>
             <plugins>
