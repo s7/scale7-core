@@ -10,14 +10,14 @@ public class ExceptionsHelper {
 	 * @param ex The exception
 	 * @return A string representing the exception stack trace with start and stop markers
 	 */
-	public static String stackTraceToString(Exception ex) {
+	public static String stackTraceToString(Throwable ex) {
 		StringWriter sw = new StringWriter();
 	    PrintWriter pw = new PrintWriter(sw);
 	    ex.printStackTrace(pw);
 	    return sw.toString();
 	}
 
-	public static String stackTraceForLog(Exception ex) {
+	public static String stackTraceForLog(Throwable ex) {
 		StringWriter sw = new StringWriter();
 	    PrintWriter pw = new PrintWriter(sw);
 	    pw.print("\n__exception_stack_trace_start\n");
