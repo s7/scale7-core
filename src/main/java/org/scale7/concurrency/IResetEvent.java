@@ -7,9 +7,9 @@ public interface IResetEvent {
 	
 	public void reset();
 	
-	public void waitOne() throws InterruptedException;
+	public void waitOne();
 	
-	public boolean waitOne(int timeout, TimeUnit unit) throws InterruptedException;
+	public boolean waitOne(int timeout, TimeUnit unit);
 	
 	public boolean isSignalled();
 }
