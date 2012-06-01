@@ -3,7 +3,7 @@
     <groupId>org.scale7</groupId>
     <artifactId>scale7-core</artifactId>
     <packaging>jar</packaging>
-    <version>1.4.2</version>
+    <version>1.4.3</version>
     <name>Core - The core classes used by the Scale 7 libraries</name>
     <url>http://github.com/s7/core</url>
     <properties>
@@ -175,10 +175,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
             </plugin>
+            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>

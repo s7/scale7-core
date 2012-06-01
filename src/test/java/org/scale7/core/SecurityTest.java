@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.scale7.networking.security.WSSEUsernameToken;
 import org.scale7.portability.SystemProxy;
